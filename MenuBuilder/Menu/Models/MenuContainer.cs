@@ -1,12 +1,12 @@
 ﻿using MenuBuilder.Menu.Abstract;
 using MenuBuilder.Menu.Extensions;
 using MenuBuilder.Menu.Fixed;
-using MenuBuilder.Menu.Renderer;
+using MenuBuilder.Renderer;
 
 namespace MenuBuilder.Menu.Models;
 internal class MenuContainer : IMenuContainer
 {
-    private List<IMenuContainerChild> _children;
+    private readonly List<IMenuContainerChild> _children;
     private int _selectedIndex = 0;
 
     public MenuContainer()

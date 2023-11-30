@@ -1,6 +1,6 @@
 ﻿using MenuBuilder.Menu.Models;
 
-namespace MenuBuilder.Menu.Renderer;
+namespace MenuBuilder.Renderer;
 internal static class ConsoleDraw
 {
     public static void WriteAtPosition(Vector2 position, string text, ConsoleColor fgColor, ConsoleColor bgColor)
