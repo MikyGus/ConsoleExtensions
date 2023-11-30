@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuBuilder", "MenuBuilder\MenuBuilder.csproj", "{92E241E3-DBEB-4B4F-8471-79610F3ED737}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleExtensions", "MenuBuilder\ConsoleExtensions.csproj", "{92E241E3-DBEB-4B4F-8471-79610F3ED737}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
