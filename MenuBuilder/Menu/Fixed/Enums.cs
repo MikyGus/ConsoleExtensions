@@ -1,2 +1,2 @@
-﻿namespace MenuBuilder.Menu.Fixed;
+﻿namespace ConsoleExtensions.Menu.Fixed;
 enum ContainerChildOrientation { Vertical, Horizontal }

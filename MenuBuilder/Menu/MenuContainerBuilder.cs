@@ -1,13 +1,11 @@
-﻿using MenuBuilder.Menu.Abstract;
-using MenuBuilder.Menu.Fixed;
-using MenuBuilder.Menu.Models;
+﻿using ConsoleExtensions.Menu.Abstract;
+using ConsoleExtensions.Menu.Fixed;
+using ConsoleExtensions.Menu.Models;
 
-namespace MenuBuilder.Menu;
+namespace ConsoleExtensions.Menu;
 internal class MenuContainerBuilder : IMenuBuilder
 {
     private readonly IMenuContainer _container;
-
-    private int _indexToSelect = 0;
 
     public MenuContainerBuilder()
     {
@@ -30,16 +28,32 @@ internal class MenuContainerBuilder : IMenuBuilder
         return this;
     }
 
-    public IMenuContainer Build()
-    {
-        _container.SelectedIndex = _indexToSelect;
-        return _container;
-    }
-
+    public IMenuContainer Build() => _container;
+    /// <summary>
+    /// Selects child of container at specified index. 
+    /// May only be specified AFTER the children have been added.
+    /// The index-value will be altered to upper or lower bound if specified index is out of bounds.
+    /// </summary>
+    /// <param name="index">Child at this index to be selected</param>
+    /// <returns>IMenuBuilder</returns>
     public IMenuBuilder SelectByIndex(int index)
     {
-        _indexToSelect = index;
+        _container.SelectedIndex = index;
         return this;
     }
-    public IMenuBuilder SelectByValue<T>(T value) => throw new NotImplementedException();
+    /// <summary>
+    /// Selects child of container by the containers value. 
+    /// Only selects IMenuChildItems! 
+    /// May only be specified AFTER the children have been added.
+    /// The Equals() method is used for equality.
+    /// </summary>
+    /// <exception cref="ArgumentException">Thrown when specified value is not found among the containers children.</exception>
+    /// <typeparam name="T">MenuChildItems type of value</typeparam>
+    /// <param name="value">Value of MenuChildItem to select</param>
+    /// <returns>IMenuBuilder</returns>
+    public IMenuBuilder SelectByValue<T>(T value)
+    {
+        _container.SelectByValue(value);
+        return this;
+    }
 }

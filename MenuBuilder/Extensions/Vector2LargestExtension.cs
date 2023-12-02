@@ -1,6 +1,6 @@
-﻿using MenuBuilder.Menu.Models;
+﻿using ConsoleExtensions.Models;
 
-namespace MenuBuilder.Menu.Extensions;
+namespace ConsoleExtensions.Extensions;
 internal static class Vector2LargestExtension
 {
     /// <summary>

@@ -1,4 +1,4 @@
-﻿namespace MenuBuilder.Menu.Abstract;
+﻿namespace ConsoleExtensions.Menu.Abstract;
 internal interface IMenuContainerItem<T> : IMenuContainerChild
 {
     /// <summary>

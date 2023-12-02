@@ -1,6 +1,6 @@
-﻿using MenuBuilder.Menu.Models;
+﻿using ConsoleExtensions.Models;
 
-namespace MenuBuilder.Menu.Abstract;
+namespace ConsoleExtensions.Menu.Abstract;
 internal interface IMenuContainerChild
 {
     string Title { get; set; }
@@ -9,5 +9,4 @@ internal interface IMenuContainerChild
     void Render();
     void RenderSelection();
     Vector2 AreaNeeded();
-
 }

@@ -1,4 +1,4 @@
-﻿namespace MenuBuilder.Menu.Models;
+﻿namespace ConsoleExtensions.Models;
 internal class Vector2 : IEquatable<Vector2>
 {
     public int X { get; set; }

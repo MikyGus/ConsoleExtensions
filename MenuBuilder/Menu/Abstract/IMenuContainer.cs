@@ -1,7 +1,7 @@
-﻿using MenuBuilder.Menu.Fixed;
-using MenuBuilder.Menu.Models;
+﻿using ConsoleExtensions.Menu.Fixed;
+using ConsoleExtensions.Models;
 
-namespace MenuBuilder.Menu.Abstract;
+namespace ConsoleExtensions.Menu.Abstract;
 internal interface IMenuContainer : IMenuContainerChild
 {
     IEnumerable<IMenuContainerChild> Children { get; }
@@ -10,8 +10,4 @@ internal interface IMenuContainer : IMenuContainerChild
     int SelectedIndex { get; set; }
     void SelectByValue<T>(T value);
     void AddChild(IMenuContainerChild child);
-
-
-
-
 }

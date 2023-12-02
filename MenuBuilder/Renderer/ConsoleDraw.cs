@@ -1,6 +1,6 @@
-﻿using MenuBuilder.Menu.Models;
+﻿using ConsoleExtensions.Models;
 
-namespace MenuBuilder.Renderer;
+namespace ConsoleExtensions.Renderer;
 internal static class ConsoleDraw
 {
     public static void WriteAtPosition(Vector2 position, string text, ConsoleColor fgColor, ConsoleColor bgColor)

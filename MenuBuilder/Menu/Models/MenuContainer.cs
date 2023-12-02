@@ -1,9 +1,10 @@
-﻿using MenuBuilder.Menu.Abstract;
-using MenuBuilder.Menu.Extensions;
-using MenuBuilder.Menu.Fixed;
-using MenuBuilder.Renderer;
+﻿using ConsoleExtensions.Extensions;
+using ConsoleExtensions.Menu.Abstract;
+using ConsoleExtensions.Menu.Fixed;
+using ConsoleExtensions.Models;
+using ConsoleExtensions.Renderer;
 
-namespace MenuBuilder.Menu.Models;
+namespace ConsoleExtensions.Menu.Models;
 internal class MenuContainer : IMenuContainer
 {
     private readonly List<IMenuContainerChild> _children;
@@ -29,21 +30,41 @@ internal class MenuContainer : IMenuContainer
     public int SelectedIndex
     {
         get => _selectedIndex;
-        set => _selectedIndex = value > _children.Count - 1 ? _children.Count - 1 : value;
+        set
+        {
+            if (value > _children.Count - 1)
+                _selectedIndex = _children.Count - 1;
+            else if (value < 0)
+                _selectedIndex = 0;
+            else
+                _selectedIndex = value;
+        }
     }
 
     public void SelectByValue<T>(T value)
     {
         var index = 0;
-        _children.ForEach(c =>
+        //_children.ForEach(c =>
+        //{
+        //    if (c is IMenuContainerItem<T> item && item.Value.Equals(value))
+        //    {
+        //        _selectedIndex = index;
+        //        return;
+        //    }
+        //    index++;
+        //});
+
+        foreach (var child in Children)
         {
-            if (c is IMenuContainerItem<T> item && item.Equals(value))
-            {
-                _selectedIndex = index;
-                return;
-            }
+            if (child is IMenuContainerItem<T> c)
+                if (c.Value.Equals(value))
+                {
+                    SelectedIndex = index;
+                    return;
+                }
             index++;
-        });
+        }
+
         throw new ArgumentException($"No MenuContainerChild with {value} could be found!");
     }
 
